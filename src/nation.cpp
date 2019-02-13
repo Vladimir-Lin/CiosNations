@@ -10,6 +10,13 @@
 namespace NATIONS_NAMESPACE {
 #endif
 
+Nation:: Nation (void)
+{
+}
+
+Nation::~Nation (void)
+{
+}
 
 #ifndef DONT_USE_NAMESPACE
 }

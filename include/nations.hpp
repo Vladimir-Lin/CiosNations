@@ -1,6 +1,6 @@
 /****************************************************************************\
  *
- *                         CIOS Color Spaces
+ *                         ISO 3166 Country Supports
  *
 \****************************************************************************/
 
@@ -31,7 +31,47 @@
 namespace NATIONS_NAMESPACE {
 #endif
 
-class LIBNATIONS_EXPORT RGBA       ;
+class LIBNATIONS_EXPORT Nation ;
+
+#pragma pack(push,1)
+
+typedef struct       {
+  int32_t      Id    ;
+  uint64_t     Uuid  ;
+  int8_t       Type  ;
+  int8_t       Used  ;
+  int16_t      Code  ;
+  const char * Two   ;
+  const char * Three ;
+  const char * Four  ;
+  const char * Name  ;
+} NationItem         ;
+
+#pragma pack(pop)
+
+
+class LIBNATIONS_EXPORT Nation
+{
+  public:
+
+    int32_t  Id    ;
+    uint64_t Uuid  ;
+    int8_t   Type  ;
+    int8_t   Used  ;
+    int16_t  Code  ;
+    char   * Two   ;
+    char   * Three ;
+    char   * Four  ;
+    char   * Name  ;
+
+    explicit Nation (void) ;
+    virtual ~Nation (void) ;
+
+  protected:
+
+  private:
+
+} ;
 
 #ifndef DONT_USE_NAMESPACE
 }
