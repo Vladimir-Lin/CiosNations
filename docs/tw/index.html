@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>國家</title>
+  </head>
+  <body>
+    <div align="center">
+      <h1>國家</h1>
+    </div>
+    <hr width="100%" size="2">
+    <h2> 簡介</h2>
+    國際標準化組織的ISO 3166-1國際標準是ISO 3166的第一部分，有ISO標準國家代碼。1974年首次出版。ISO
+    3166-1旨在為國家、屬地、具特殊科學價值地點建立國際認可的代碼。代碼分為3種，即二位字母代碼（alpha-2）、三位字母代碼（alpha-
+    3）、數字代碼（numeric）。其中，二位字母代碼適用於通常情況，三位字母代碼更接近國家名稱，而數字代碼則適用於非拉丁字母環境中。 <br>
+    <br>
+    ISO 3166-2則包含約3700個國家及行政地區。<br>
+    <br>
+    <hr width="100%" size="2">
+    <h2>資料庫表格</h2>
+    <br>
+    <table width="100%" cellspacing="2" cellpadding="2" border="1">
+      <tbody>
+        <tr>
+          <td valign="top" align="center">欄位<br>
+          </td>
+          <td valign="top" align="center">資料型態<br>
+          </td>
+          <td valign="top" align="center">數值範圍<br>
+          </td>
+          <td valign="top" align="center">涵義</td>
+        </tr>
+        <tr>
+          <td valign="top">id<br>
+          </td>
+          <td valign="top">integer<br>
+          </td>
+          <td valign="top">&gt;0<br>
+          </td>
+          <td valign="top">資料庫位序編號<br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">uuid<br>
+          </td>
+          <td valign="top">bigint<br>
+          </td>
+          <td valign="top">&gt;0<br>
+          </td>
+          <td valign="top">國家SUID編號 </td>
+        </tr>
+        <tr>
+          <td valign="top">type<br>
+          </td>
+          <td valign="top">integer<br>
+          </td>
+          <td valign="top">0-3<br>
+          </td>
+          <td valign="top">國家地區類型<br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">used<br>
+          </td>
+          <td valign="top">integer<br>
+          </td>
+          <td valign="top">0-2<br>
+          </td>
+          <td valign="top">該編號是否啟用<br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">code<br>
+          </td>
+          <td valign="top">integer<br>
+          </td>
+          <td valign="top">0-999<br>
+          </td>
+          <td valign="top">ISO 3166-1數字代碼 </td>
+        </tr>
+        <tr>
+          <td valign="top">two<br>
+          </td>
+          <td valign="top">tinyblob<br>
+          </td>
+          <td valign="top">AA-ZZ<br>
+          </td>
+          <td valign="top">ISO 3166-1雙碼 </td>
+        </tr>
+        <tr>
+          <td valign="top">three<br>
+          </td>
+          <td valign="top">tinyblob<br>
+          </td>
+          <td valign="top">AAA-ZZZ<br>
+          </td>
+          <td valign="top">ISO 3166-1三碼 </td>
+        </tr>
+        <tr>
+          <td valign="top">name<br>
+          </td>
+          <td valign="top">blob<br>
+          </td>
+          <td valign="top"><br>
+          </td>
+          <td valign="top">ISO 3166-1英文名稱<br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr width="100%" size="2">
+    <h2>數據檔案</h2>
+    <br>
+    <ol>
+      <li><a href="Lists.txt">簡單列表</a></li>
+      <li><a href="ISO-3166-1.txt">表格列表</a></li>
+      <li><a href="countries.sql">資料庫表格</a></li>
+    </ol>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr width="100%" size="2">最後更新日期：2019/02/12 18:30<br>
+  </body>
+</html>
