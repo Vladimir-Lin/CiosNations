@@ -49,23 +49,47 @@ typedef struct       {
 
 #pragma pack(pop)
 
-
 class LIBNATIONS_EXPORT Nation
 {
   public:
 
-    int32_t  Id    ;
-    uint64_t Uuid  ;
-    int8_t   Type  ;
-    int8_t   Used  ;
-    int16_t  Code  ;
-    char   * Two   ;
-    char   * Three ;
-    char   * Four  ;
-    char   * Name  ;
+    typedef enum
+      Types          {
+      Any        = 0 ,
+      Country    = 1 ,
+      Region     = 2 ,
+      Dispute    = 3 ,
+      Spiritual  = 4 ,
+      Expired    = 5 ,
+      Historical = 6 ,
+      Fiction    = 7 ,
+      Virtual    = 8 ,
+      Others     = 9 }
+      Types          ;
 
-    explicit Nation (void) ;
-    virtual ~Nation (void) ;
+    typedef enum
+      Activations    {
+      Unused     = 0 ,
+      Using      = 1 ,
+      Editing    = 2 ,
+      Suspension = 3 }
+      Activations    ;
+
+    int32_t  Id    ; // SQL Sequence Id
+    uint64_t Uuid  ; // 7400000000000000001 ~  7400000000001000000
+    int8_t   Type  ; // Types
+    int8_t   Used  ; // Activations
+    int16_t  Code  ; // ISO 3166-1 Country Code, 0 for stop list
+    char   * Two   ; // ISO 3166-1 Alpha-2 Code
+    char   * Three ; // ISO 3166-1 Alpha-3 Code
+    char   * Four  ; // ISO 3166-3 Four-letter code
+    char   * Name  ; // Country English Name
+
+    explicit Nation  (void) ;
+    virtual ~Nation  (void) ;
+
+    bool     isEqual (int16_t code) ;
+    bool     isEqual (const char * alpha) ;
 
   protected:
 

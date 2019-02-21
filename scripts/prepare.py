@@ -1,37 +1,44 @@
 import sys
 import mysql.connector
 
-# if len(sys.argv) < 2 :
-#  sys.exit(0) ;
+if len(sys.argv) < 2 :
+  sys.exit(0) ;
 
-# filename = sys.argv[1] ;
-# file = open(filename,"r+") ;
-# lines = file.readlines() ;
-# file.close() ;
+filename = sys.argv[1] ;
+file = open(filename,"r+",encoding="utf-8") ;
+lines = file.readlines() ;
+file.close() ;
 
-# elements = [] ;
-# three = {} ;
-# codes = {} ;
+elements = [] ;
+three = {} ;
+codes = {} ;
+msg = {} ;
 
-# for a in lines:
-#  l = a.split('\t')
-#  three [ l[0] ] = l [ 1 ]
-#  codes [ l[0] ] = int ( l [ 2 ] )
-#  elements.append(l[0])
+for a in lines:
+  l = a.split('\t')
+  three [ l[1] ] = l [ 2 ]
+  codes [ l[1] ] = int ( l [ 3 ] )
+  msg [ l[1] ] = l [ 0 ]
+  elements.append(l[1])
 
-#x = sorted(elements) ;
+x = sorted(elements) ;
   
-# for e in x:
-#  print ( e , three [ e ] , codes [ e ] )
+#for e in x:
+#  print ( e , " => " , msg [ e ] )
 
-#db = mysql.connector.connect(
-#  host="192.168.0.97",
-#  user="foxman",
-#  passwd="la0marina",
-#  database="erp"
-#)
+db = mysql.connector.connect(
+  host="192.168.0.97",
+  user="foxman",
+  passwd="la0marina",
+  database="erp"
+)
 
-#mc = db.cursor()
+mc = db.cursor()
+
+for e in x:
+  ss = "update `erp`.`countries` set `name` = \"" + msg [ e ] + "\" where `two` = \"" + e + "\" ;" ;
+  print(ss)
+  mc.execute(ss)
 
 #id   = 250 ;
 #base = 7400000000000000250 ;
