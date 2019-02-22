@@ -11,7 +11,8 @@ SET(HEADERS include/nations.hpp)
 
 # Source codes
 SET(CORES
-  src/nation.cpp)
+  src/nation.cpp
+  src/countries.cpp)
 
 if(NONAMESPACE)
   add_definitions("-DDONT_USE_NAMESPACE=1")

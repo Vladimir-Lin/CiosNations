@@ -47,6 +47,8 @@ typedef struct       {
   const char * Name  ;
 } NationItem         ;
 
+extern NationItem DefaultNations [ ] ;
+
 #pragma pack(pop)
 
 class LIBNATIONS_EXPORT Nation
