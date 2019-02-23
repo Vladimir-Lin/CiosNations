@@ -88,7 +88,10 @@ class LIBNATIONS_EXPORT Nation
     char   * Name  ; // Country English Name
 
     explicit Nation  (void) ;
+             Nation  (const Nation & nation) ;
     virtual ~Nation  (void) ;
+
+    Nation & assign  (const Nation & nation) ;
 
     bool     isEqual (int16_t code) ;
     bool     isEqual (const char * alpha) ;

@@ -16,8 +16,18 @@ Nation:: Nation (void)
 {
 }
 
+Nation:: Nation (const Nation & nation)
+{
+  this -> assign ( nation ) ;
+}
+
 Nation::~Nation (void)
 {
+}
+
+Nation & Nation::assign(const Nation & nation)
+{
+  return (*this) ;
 }
 
 bool Nation::isEqual(int16_t code)
