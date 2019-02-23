@@ -2,11 +2,16 @@
  *
  *                         ISO 3166 Country Supports
  *
+ * ISO 3166-1
+ * ISO 3166-2
+ * ISO 3166-3
+ *
 \****************************************************************************/
 
 #ifndef CIOS_NATIONS_HPP
 #define CIOS_NATIONS_HPP
 
+// cmake ... -DBUILD_SHARED_LIBS=1 ... => compile shared library
 #if defined (WIN32) && defined(BUILD_SHARED_LIBS)
   #if defined (_MSC_VER)
     #pragma warning(disable: 4251)
@@ -47,9 +52,16 @@ typedef struct       {
   const char * Name  ;
 } NationItem         ;
 
-extern NationItem DefaultNations [ ] ;
+extern NationItem DefaultNations  [ ] ; // Regular ISO 3166 Supports
+extern NationItem ExtendedNations [ ] ; // Extended ISO 3166 Supports, some other virtual or fiction records
 
 #pragma pack(pop)
+
+// To disable this, try cmake ... -DDISABLE_NATION_ENUMS=1
+#ifndef DISABLE_NATION_ENUMS
+extern const char * NationTypeStrings       [ ] ; // For Types enum
+extern const char * NationActivationStrings [ ] ; // For Activations enum
+#endif
 
 class LIBNATIONS_EXPORT Nation
 {
@@ -77,7 +89,7 @@ class LIBNATIONS_EXPORT Nation
       Suspension = 3 }
       Activations    ;
 
-    int32_t  Id    ; // SQL Sequence Id
+    int32_t  Id    ; // SQL Sequence Id or Array Id, start from 1
     uint64_t Uuid  ; // 7400000000000000001 ~  7400000000001000000
     int8_t   Type  ; // Types
     int8_t   Used  ; // Activations
@@ -87,18 +99,40 @@ class LIBNATIONS_EXPORT Nation
     char   * Four  ; // ISO 3166-3 Four-letter code
     char   * Name  ; // Country English Name
 
-    explicit Nation  (void) ;
-             Nation  (const Nation & nation) ;
-    virtual ~Nation  (void) ;
+    explicit Nation      (void) ;
+             Nation      (const Nation     & nation) ;
+             Nation      (const NationItem & nation) ;
+    virtual ~Nation      (void) ;
 
-    Nation & assign  (const Nation & nation) ;
+    bool     operator == (const Nation     & nation) const ;
 
-    bool     isEqual (int16_t code) ;
-    bool     isEqual (const char * alpha) ;
+    Nation & operator  = (const Nation     & nation) ;
+    Nation & operator  = (const NationItem & nation) ;
+
+    Nation & assign      (const Nation     & nation) ;
+    Nation & assign      (const NationItem & nation) ;
+
+    bool     isType      (int8_t type) const ;
+    bool     isCountry   (void) const ; // is this Id a Country
+    bool     isRegion    (void) const ; // is this Id a Region
+    bool     isNormal    (void) const ; // is this Id a Country or a Region
+    bool     isActivated (void) const ;
+    bool     isValid     (uint64_t uuid) const ;
+    bool     isUuid      (uint64_t uuid) const ;
+    bool     isEqual     (int16_t code) const ;
+
+    // string length = 2 , compare to Two
+    // string length = 3 , compare to Three
+    // string length = 4 , compare to Four
+    bool     isEqual     (const char * alpha) const ;
+
+    static int NationItemCount (NationItem items[]) ;
 
   protected:
 
   private:
+
+    char   * Clone   (const char * ptr) ; // a safe replacement of strdup
 
 } ;
 
