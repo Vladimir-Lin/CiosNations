@@ -20,6 +20,7 @@ SOURCES     += $$SRCPATH/extended.cpp
 SOURCES     += $$SRCPATH/enumerations.cpp
 
 OTHER_FILES += $$SRCROOT/CMakeLists.txt
+OTHER_FILES += $$SRCROOT/CiosNations.bat
 
 OTHER_FILES += $$SRCROOT/projects/*
 
