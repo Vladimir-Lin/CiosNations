@@ -1,5 +1,5 @@
 # Author : Foxman A.K.A. Vladimir Lin <lin.vladimir@gmail.com>
-# Lastest update : 2019/02/23 20:19
+# Lastest update : 2019/02/23 23:11
 
 QT          -= gui
 TARGET       = libnations
@@ -20,10 +20,22 @@ SOURCES     += $$SRCPATH/extended.cpp
 SOURCES     += $$SRCPATH/enumerations.cpp
 
 OTHER_FILES += $$SRCROOT/CMakeLists.txt
-OTHER_FILES += $$SRCROOT/projects/index.xml
+
+OTHER_FILES += $$SRCROOT/projects/*
 
 OTHER_FILES += $$SRCROOT/docs/index.html
-OTHER_FILES += $$SRCROOT/docs/tw/index.html
-OTHER_FILES += $$SRCROOT/docs/en/index.html
-OTHER_FILES += $$SRCROOT/docs/cn/index.html
-OTHER_FILES += $$SRCROOT/docs/css/nations.css
+OTHER_FILES += $$SRCROOT/docs/*.txt
+OTHER_FILES += $$SRCROOT/docs/*.sql
+OTHER_FILES += $$SRCROOT/docs/tw/*
+OTHER_FILES += $$SRCROOT/docs/en/*
+OTHER_FILES += $$SRCROOT/docs/cn/*
+OTHER_FILES += $$SRCROOT/docs/css/*.css
+
+OTHER_FILES += $$SRCROOT/Html/en/*
+OTHER_FILES += $$SRCROOT/Html/tw/*
+OTHER_FILES += $$SRCROOT/Html/cn/*
+
+OTHER_FILES += $$SRCROOT/JS/*
+OTHER_FILES += $$SRCROOT/PHP/*
+OTHER_FILES += $$SRCROOT/Python/*
+OTHER_FILES += $$SRCROOT/Ruby/*

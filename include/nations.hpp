@@ -27,6 +27,7 @@
 
 #include <stdint.h>
 #include <stdio.h>
+#include <string>
 
 #if !defined(NATIONS_NAMESPACE)
 #define NATIONS_NAMESPACE Nations
@@ -99,34 +100,39 @@ class LIBNATIONS_EXPORT Nation
     char   * Four  ; // ISO 3166-3 Four-letter code
     char   * Name  ; // Country English Name
 
-    explicit Nation      (void) ;
-             Nation      (const Nation     & nation) ;
-             Nation      (const NationItem & nation) ;
-    virtual ~Nation      (void) ;
+    explicit    Nation          (void) ;
+                Nation          (const Nation     & nation) ;
+                Nation          (const NationItem & nation) ;
+    virtual    ~Nation          (void) ;
 
-    bool     operator == (const Nation     & nation) const ;
+    bool        operator     == (const Nation     & nation) const ;
 
-    Nation & operator  = (const Nation     & nation) ;
-    Nation & operator  = (const NationItem & nation) ;
+    Nation    & operator      = (const Nation     & nation) ;
+    Nation    & operator      = (const NationItem & nation) ;
 
-    Nation & assign      (const Nation     & nation) ;
-    Nation & assign      (const NationItem & nation) ;
+    Nation    & assign          (const Nation     & nation) ;
+    Nation    & assign          (const NationItem & nation) ;
 
-    bool     isType      (int8_t type) const ;
-    bool     isCountry   (void) const ; // is this Id a Country
-    bool     isRegion    (void) const ; // is this Id a Region
-    bool     isNormal    (void) const ; // is this Id a Country or a Region
-    bool     isActivated (void) const ;
-    bool     isValid     (uint64_t uuid) const ;
-    bool     isUuid      (uint64_t uuid) const ;
-    bool     isEqual     (int16_t code) const ;
+    bool        isType          (int8_t type) const ;
+    bool        isCountry       (void) const ; // is this Id a Country
+    bool        isRegion        (void) const ; // is this Id a Region
+    bool        isNormal        (void) const ; // is this Id a Country or a Region
+    bool        isActivated     (void) const ;
+    bool        isValid         (uint64_t uuid) const ;
+    bool        isUuid          (uint64_t uuid) const ;
+    bool        isEqual         (int16_t code) const ;
 
     // string length = 2 , compare to Two
     // string length = 3 , compare to Three
     // string length = 4 , compare to Four
-    bool     isEqual     (const char * alpha) const ;
+    bool        isEqual         (const char * alpha) const ;
 
-    static int NationItemCount (NationItem items[]) ;
+    // length = 2 -> Two
+    // length = 3 -> Three
+    // length = 4 -> Four
+    std::string toStdString     (int length) ;
+
+    static int  NationItemCount (NationItem items[]) ;
 
   protected:
 

@@ -167,6 +167,17 @@ bool Nation::isEqual(const char * alpha) const
   return true                          ;
 }
 
+std::string Nation::toStdString(int length)
+{
+  std::string key                                       ;
+  switch ( length )                                     {
+    case 2: if ( nullptr != Two   ) key = Two   ; break ;
+    case 3: if ( nullptr != Three ) key = Three ; break ;
+    case 4: if ( nullptr != Four  ) key = Four  ; break ;
+  }                                                     ;
+  return key                                            ;
+}
+
 int Nation::NationItemCount(NationItem items [ ])
 {
   int count = 0                              ;
