@@ -1,0 +1,12 @@
+name=libnations
+libdir=D:/CIOS/lib/x64/shared/release
+includedir=D:/CIOS/include
+lib=${name}.lib
+file=${libdir}/${lib}
+
+Name: libnations
+Version: 0.0.1
+Description: ISO 3166 Supports for CIOS
+URL: https://github.com/Vladimir-Lin/CiosNations
+Libs: -L${libdir} -l${name}
+Cflags: -I${includedir}

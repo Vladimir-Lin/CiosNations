@@ -30,7 +30,12 @@
 #include <string>
 
 #if !defined(NATIONS_NAMESPACE)
-#define NATIONS_NAMESPACE Nations
+#define NATIONS_NAMESPACE CIOS
+#endif
+
+// Debug
+#ifdef CIOSDEBUG
+
 #endif
 
 #ifndef DONT_USE_NAMESPACE

@@ -15,6 +15,15 @@ namespace NATIONS_NAMESPACE {
 
 Nation:: Nation (void)
 {
+  this -> Id    = 0       ;
+  this -> Uuid  = 0       ;
+  this -> Type  = 0       ;
+  this -> Used  = 0       ;
+  this -> Code  = 0       ;
+  this -> Two   = nullptr ;
+  this -> Three = nullptr ;
+  this -> Four  = nullptr ;
+  this -> Name  = nullptr ;
 }
 
 Nation:: Nation (const Nation & nation)
