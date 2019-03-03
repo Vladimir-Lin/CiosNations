@@ -1,6 +1,6 @@
 name=libnations
-libdir=D:/CIOS/lib/x64/shared/release
-includedir=D:/CIOS/include
+libdir=$${LIBPATH}
+includedir=$${INCLUDEPATH}
 lib=${name}.lib
 file=${libdir}/${lib}
 

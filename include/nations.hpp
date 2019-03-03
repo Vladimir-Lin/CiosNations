@@ -58,8 +58,8 @@ typedef struct       {
   const char * Name  ;
 } NationItem         ;
 
-extern NationItem DefaultNations  [ ] ; // Regular ISO 3166 Supports
-extern NationItem ExtendedNations [ ] ; // Extended ISO 3166 Supports, some other virtual or fiction records
+extern LIBNATIONS_EXPORT NationItem DefaultNations  [ ] ; // Regular ISO 3166 Supports
+extern LIBNATIONS_EXPORT NationItem ExtendedNations [ ] ; // Extended ISO 3166 Supports, some other virtual or fiction records
 
 #pragma pack(pop)
 

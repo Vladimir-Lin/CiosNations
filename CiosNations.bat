@@ -21,3 +21,4 @@ cmd /A /Q /K %CIOSNATIONS%\scripts\x64.bat %COMPILEPATH% Debug   shared 0 1
 cd %ORIGINAL%
 rd /S /Q %COMPILEPATH%
 echo Compile Done
+rem exit
