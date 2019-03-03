@@ -10,3 +10,9 @@ Description: ISO 3166 Supports for CIOS
 URL: https://github.com/Vladimir-Lin/CiosNations
 Libs: -L${libdir} -l${name}
 Cflags: -I${includedir}
+
+compiler=@CMAKE_CXX_COMPILER_ID@
+type=@CMAKE_BUILD_TYPE@
+arch=@TARGET_ARCH@
+shared=@BUILD_SHARED_LIBS@
+timestamp=@COMPILE_DATETIME@
