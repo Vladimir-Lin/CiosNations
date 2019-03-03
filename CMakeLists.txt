@@ -51,6 +51,7 @@ set(HEADERS include/nations.hpp)
 # Source codes
 set(CORES
   src/nation.cpp
+  src/region.cpp
   src/countries.cpp
   src/extended.cpp
   src/enumerations.cpp)

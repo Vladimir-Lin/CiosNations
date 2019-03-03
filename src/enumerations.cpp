@@ -6,7 +6,7 @@ namespace NATIONS_NAMESPACE {
 
 #ifndef DISABLE_NATION_ENUMS
 
-const char * NationTypeStrings [ ] = {
+LIBNATIONS_EXPORT const char * NationTypeStrings [ ] = {
   "Any"                              , // 0
   "Country"                          , // 1
   "Region"                           , // 2
@@ -19,7 +19,7 @@ const char * NationTypeStrings [ ] = {
   "Others"                           , // 9
   nullptr                          } ;
 
-const char * NationActivationStrings [ ] = {
+LIBNATIONS_EXPORT const char * NationActivationStrings [ ] = {
   "Unused"                                 , // 0
   "Using"                                  , // 1
   "Editing"                                , // 2

@@ -21,5 +21,7 @@ xcopy /Y %COMPILEPATH%\%TARGET%\lib\libnations.lib %LIBPLACE%\libnations.lib
 xcopy /Y %COMPILEPATH%\%TARGET%\lib\packages\libnations.pc %PKGPLACE%\libnations.pc
 xcopy /Y %COMPILEPATH%\%TARGET%\bin\libnations.dll %LIBPLACE%\DLL\libnations.dll
 
+cd %COMPILEPATH%
+
 rd /S /Q %COMPILEPATH%\%TARGET%
 exit

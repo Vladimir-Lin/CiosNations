@@ -15,6 +15,7 @@ INCLUDEPATH  = $$SRCROOT/include
 HEADERS     += $$SRCROOT/include/nations.hpp
 
 SOURCES     += $$SRCPATH/nation.cpp
+SOURCES     += $$SRCPATH/region.cpp
 SOURCES     += $$SRCPATH/countries.cpp
 SOURCES     += $$SRCPATH/extended.cpp
 SOURCES     += $$SRCPATH/enumerations.cpp

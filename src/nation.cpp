@@ -13,6 +13,18 @@
 namespace NATIONS_NAMESPACE {
 #endif
 
+char * Clone (const char * ptr)
+{
+  if ( nullptr == ptr ) return nullptr ;
+  size_t t = strlen ( ptr )            ;
+  if ( t <=    0      ) return nullptr ;
+  if ( t >  1023      ) t = 1023       ;
+  char * p = new char [ t + 1 ]        ;
+  p [ t ]  = 0                         ;
+  ::memcpy ( p , ptr , t )             ;
+  return p                             ;
+}
+
 Nation:: Nation (void)
 {
   this -> Id    = 0       ;
@@ -46,18 +58,6 @@ Nation::~Nation (void)
   this -> Three = nullptr                                  ;
   this -> Four  = nullptr                                  ;
   this -> Name  = nullptr                                  ;
-}
-
-char * Nation::Clone(const char * ptr)
-{
-  if ( nullptr == ptr ) return nullptr ;
-  size_t t = strlen ( ptr )            ;
-  if ( t <=    0      ) return nullptr ;
-  if ( t >  1023      ) t = 1023       ;
-  char * p = new char [ t + 1 ]        ;
-  p [ t ]  = 0                         ;
-  memcpy ( p , ptr , t )               ;
-  return p                             ;
 }
 
 bool Nation::operator == (const Nation & nation) const

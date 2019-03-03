@@ -15,6 +15,7 @@
 #if defined (WIN32) && defined(BUILD_SHARED_LIBS)
   #if defined (_MSC_VER)
     #pragma warning(disable: 4251)
+    #pragma warning(disable: 4819)
   #endif
   #if defined(EXPORT_LIBNATIONS)
     #define LIBNATIONS_EXPORT __declspec(dllexport)
@@ -46,27 +47,40 @@ class LIBNATIONS_EXPORT Nation ;
 
 #pragma pack(push,1)
 
-typedef struct       {
-  int32_t      Id    ;
-  uint64_t     Uuid  ;
-  int8_t       Type  ;
-  int8_t       Used  ;
-  int16_t      Code  ;
-  const char * Two   ;
-  const char * Three ;
-  const char * Four  ;
-  const char * Name  ;
-} NationItem         ;
+// ISO 3166-1
+typedef struct        {
+  int32_t      Id     ;
+  uint64_t     Uuid   ;
+  int8_t       Type   ;
+  int8_t       Used   ;
+  int16_t      Code   ;
+  const char * Two    ;
+  const char * Three  ;
+  const char * Four   ;
+  const char * Name   ;
+} NationItem          ;
 
-extern LIBNATIONS_EXPORT NationItem DefaultNations  [ ] ; // Regular ISO 3166 Supports
-extern LIBNATIONS_EXPORT NationItem ExtendedNations [ ] ; // Extended ISO 3166 Supports, some other virtual or fiction records
+// ISO 3166-2
+typedef struct        {
+  int32_t      Id     ;
+  uint64_t     Uuid   ;
+  int8_t       Type   ;
+  int8_t       Used   ;
+  uint64_t     Nation ;
+  int16_t      Code   ;
+  const char * Two    ;
+  const char * SAC    ;
+} RegionItem          ;
 
 #pragma pack(pop)
 
+LIBNATIONS_EXPORT extern NationItem DefaultNations  [ ] ; // Regular ISO 3166 Supports
+LIBNATIONS_EXPORT extern NationItem ExtendedNations [ ] ; // Extended ISO 3166 Supports, some other virtual or fiction records
+
 // To disable this, try cmake ... -DDISABLE_NATION_ENUMS=1
 #ifndef DISABLE_NATION_ENUMS
-extern const char * NationTypeStrings       [ ] ; // For Types enum
-extern const char * NationActivationStrings [ ] ; // For Activations enum
+LIBNATIONS_EXPORT extern const char * NationTypeStrings       [ ] ; // For Types enum
+LIBNATIONS_EXPORT extern const char * NationActivationStrings [ ] ; // For Activations enum
 #endif
 
 class LIBNATIONS_EXPORT Nation
@@ -143,7 +157,19 @@ class LIBNATIONS_EXPORT Nation
 
   private:
 
-    char   * Clone   (const char * ptr) ; // a safe replacement of strdup
+} ;
+
+class LIBNATIONS_EXPORT Region
+{
+  public:
+
+    explicit    Region          (void) ;
+                Region          (const Region     & region) ;
+    virtual    ~Region          (void) ;
+
+  protected:
+
+  private:
 
 } ;
 

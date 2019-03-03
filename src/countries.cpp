@@ -4,7 +4,7 @@
 namespace NATIONS_NAMESPACE {
 #endif
 
-NationItem DefaultNations [ ] = {
+LIBNATIONS_EXPORT NationItem DefaultNations [ ] = {
   {   1 , 7400000000000000001 , 1 , 1 ,  20  , "AD" , "AND" , "" , "Andorra" } ,
   {   2 , 7400000000000000002 , 1 , 1 , 784  , "AE" , "ARE" , "" , "United Arab Emirates" } ,
   {   3 , 7400000000000000003 , 1 , 1 ,   4  , "AF" , "AFG" , "" , "Afghanistan" } ,
